@@ -29,9 +29,7 @@ class Cupcake:
             print("Sorry, that cupcake doesn't exist")
             return
 
-        for cupcake in cls.cache:
-            if cupcake == name:
-                return cls.cache[cupcake]
+        return cls.cache[cupcake]
         
 
     @staticmethod
