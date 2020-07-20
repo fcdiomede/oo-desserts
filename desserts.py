@@ -14,6 +14,7 @@ class Cupcake:
 
         self.cache[self.name] = self 
 
+
     def __repr__(self):
         """Human-readable printout for debugging."""
 
@@ -25,6 +26,23 @@ class Cupcake:
 
         self.qty += amount
 
+    
+    def sell(self, amount):
+        """Remove the amount sold from the qty available"""
+
+        if self.qty == 0:
+            print("Sorry, these cupcakes are sold out")
+        elif self.qty - amount < 0:
+            self.qty = 0
+        else:
+            self.qty -= amount
+
+    @staticmethod
+    def scale_recipe(ingredients, amount):
+        """Scale the list of ingredients by the given amount of cupcakes."""
+
+        return [(ingredient, qty * amount) for ingredient, qty in ingredients]
+        
 
 if __name__ == '__main__':
     import doctest
