@@ -20,7 +20,27 @@ class Cupcake:
 
         return f'<Cupcake name="{self.name}" qty={self.qty}>'
 
-    
+
+    @classmethod
+    def get(cls, name):
+        """Return a cupcake from cache"""
+        
+        if name not in cls.cache:
+            print("Sorry, that cupcake doesn't exist")
+            return
+
+        for cupcake in cls.cache:
+            if cupcake == name:
+                return cls.cache[cupcake]
+        
+
+    @staticmethod
+    def scale_recipe(ingredients, amount):
+        """Scale the list of ingredients by the given amount of cupcakes."""
+
+        return [(ingredient, qty * amount) for ingredient, qty in ingredients]
+
+
     def add_stock(self, amount):
         """Add the amount of cupcakes in stock to qty attribute"""
 
@@ -37,11 +57,6 @@ class Cupcake:
         else:
             self.qty -= amount
 
-    @staticmethod
-    def scale_recipe(ingredients, amount):
-        """Scale the list of ingredients by the given amount of cupcakes."""
-
-        return [(ingredient, qty * amount) for ingredient, qty in ingredients]
         
 
 if __name__ == '__main__':
