@@ -29,7 +29,7 @@ class Cupcake:
             print("Sorry, that cupcake doesn't exist")
             return
 
-        return cls.cache[cupcake]
+        return cls.cache[name]
         
 
     @staticmethod
