@@ -19,6 +19,12 @@ class Cupcake:
 
         return f'<Cupcake name="{self.name}" qty={self.qty}>'
 
+    
+    def add_stock(self, amount):
+        """Add the amount of cupcakes in stock to qty attribute"""
+
+        self.qty += amount
+
 
 if __name__ == '__main__':
     import doctest
